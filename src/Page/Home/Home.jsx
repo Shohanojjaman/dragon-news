@@ -1,3 +1,4 @@
+import LeftAsides from '../../Components/Asides/LeftAsides';
 import Header from '../../Components/Header/Header';
 import Navbar from '../../Components/Header/Navbar';
 import LatestNews from '../../Components/Latest/LatestNews';
@@ -8,6 +9,9 @@ const Home = () => {
       <Header></Header>
       <LatestNews></LatestNews>
       <Navbar></Navbar>
+      <div className="grid grid-cols-4">
+        <LeftAsides></LeftAsides>
+      </div>
     </div>
   );
 };

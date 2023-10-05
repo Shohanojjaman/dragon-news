@@ -1,10 +1,16 @@
+import moment from 'moment';
 import { useContext } from 'react';
+import { BsCalendar4 } from 'react-icons/bs';
 import { NavLink } from 'react-router-dom';
 import { categoryContext } from '../Context/CategoryContextProvider';
+import { NewsContext } from '../Context/NewsProvider';
 
 const LeftAsides = () => {
   const categories = useContext(categoryContext);
-  console.log(categories);
+  const { allNews } = useContext(NewsContext);
+
+  const sportsNews = allNews.filter((news) => news.category_id == 4);
+  console.log(sportsNews);
   return (
     <aside>
       <h4 className="text-xl text-heading font-semibold mb-5">All Category</h4>
@@ -17,7 +23,21 @@ const LeftAsides = () => {
           </div>
         ))}
       </div>
-      
+      <div className="mt-8 space-y-6">
+        {sportsNews?.map((news) => (
+          <div key={news?.id} className="space-y-5">
+            <img src={news?.image_url} className="rounded-lg" alt={`Image of ${news?.title}`} />
+            <h4 className="text-xl text-heading font-semibold">{news?.title}</h4>
+            <div className="flex justify-between items-center">
+              <p className="text-base text-heading font-semibold">Sport</p>
+              <div className="flex items-center gap-2 text-light-body font-semibold">
+                <BsCalendar4></BsCalendar4>
+                {moment(news?.author?.published_date).format('MMMM DD, YYYY')}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </aside>
   );
 };

@@ -7,8 +7,8 @@ import Navbar from './Navbar';
 
 const Header = ({ latestNews }) => {
   return (
-    <div className="space-y-6">
-      <div className="container mx-auto max-sm:px-5 mt-12 space-y-5">
+    <div className="space-y-6 container mx-auto max-sm:px-5 mt-12 ">
+      <div className="space-y-5">
         <Logo></Logo>
         <div className="space-y-2 text-center text-body">
           <p className="text-lg">Journalism Without Fear or Favour</p>

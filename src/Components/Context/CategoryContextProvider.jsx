@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from 'react';
 
-export const categoryContext = createContext(null);
+export const CategoryContext = createContext(null);
 const CategoryContextProvider = ({ children }) => {
   const [category, setCategory] = useState([]);
 
@@ -11,7 +11,7 @@ const CategoryContextProvider = ({ children }) => {
       .then((data) => setCategory(data))
       .catch((error) => console.error(error));
   }, []);
-  return <categoryContext.Provider value={category}>{children}</categoryContext.Provider>;
+  return <CategoryContext.Provider value={category}>{children}</CategoryContext.Provider>;
 };
 
 CategoryContextProvider.propTypes = {

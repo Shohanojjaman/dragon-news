@@ -2,15 +2,14 @@ import moment from 'moment';
 import { useContext } from 'react';
 import { BsCalendar4 } from 'react-icons/bs';
 import { NavLink } from 'react-router-dom';
-import { categoryContext } from '../Context/CategoryContextProvider';
 import { NewsContext } from '../Context/NewsProvider';
+import { CategoryContext } from '../Context/CategoryContextProvider';
 
 const LeftAsides = () => {
-  const categories = useContext(categoryContext);
+  const categories = useContext(CategoryContext);
   const { allNews } = useContext(NewsContext);
 
   const sportsNews = allNews.filter((news) => news.category_id == 4);
-  console.log(sportsNews);
   return (
     <aside>
       <h4 className="text-xl text-heading font-semibold mb-5">All Category</h4>

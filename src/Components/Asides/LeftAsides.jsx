@@ -14,13 +14,19 @@ const LeftAsides = () => {
     <aside>
       <h4 className="text-xl text-heading font-semibold mb-5">All Category</h4>
       <div>
-        {categories?.map((category) => (
-          <div key={category?.id} className="py-4 pl-12 ">
-            <NavLink to={`category/${category?.id}`} className="text-light-body text-xl font-medium">
-              {category?.name}
-            </NavLink>
+        {categories.length == [] || allNews.length == [] ? (
+          <div className="flex w-full justify-center">
+            <span className="loading loading-ring loading-lg"></span>
           </div>
-        ))}
+        ) : (
+          categories?.map((category) => (
+            <div key={category?.id} className="py-4 pl-12 ">
+              <NavLink to={`category/${category?.id}`} className="text-light-body text-xl font-medium">
+                {category?.name}
+              </NavLink>
+            </div>
+          ))
+        )}
       </div>
       <div className="mt-8 space-y-6">
         {sportsNews?.map((news) => (

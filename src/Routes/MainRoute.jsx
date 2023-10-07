@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from '../Layout/MainLayout';
 import Home from '../Page/Home/Home';
+import PrivateRoute from './PrivateRoute';
 
 const MainRoute = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const MainRoute = createBrowserRouter([
       {
         path: '/career',
         element: <>Career</>,
+      },
+      {
+        path: '/news/:id',
+        element: <PrivateRoute> </PrivateRoute>,
       },
     ],
   },

@@ -9,3 +9,10 @@
         @apply font-poppins;
     }
 }
+
+@layer components {
+    .newspaper {
+        background: url('https://i.ibb.co/C6Y52RH/bg.png');
+        @apply bg-cover bg-no-repeat py-16 px-8
+    }
+}
